@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sudoku Board Solver</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+</head>
+
+<body class="app">
+  <h2>Sudoku Board</h2>
+	<div id="board">
+	</div>
+  <div class="title">Input Your Own and Click Below</div>
+  <button id="createsudoku" onclick="onGridSubmit('user')">Create Sudoku</button>
+  <div class="title">Or Generate a Random Board by Clicking Below</div>
+  <button id="randomsudoku" onclick="onGridSubmit('random')">Random Sudoku</button>
+  <div id='radioContainer'>
+    <input type='radio' id='BruteForceSolver' name='algorithm'>
+    <label for='bruteforce'>Brute Force</label>
+
+    <input type='radio' id='AsyncBruteForceSolver' name='algorithm'>
+    <label for='bruteforceasync'>Async Brute Force
+      <div class='tooltip'>(?)
+        <div class='tooltiptext'>
+          This will let you see the algorithm working, but takes roughly 60x longer
+        </div>
+      </div>
+    </label>
+    <button id="solvebtn">Solve</button>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="sudoku.js"></script>
+</body>
+</html>

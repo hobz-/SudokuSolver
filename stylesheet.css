@@ -1,0 +1,95 @@
+.app {
+  align-items: center;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+}
+
+#board input[readonly] {
+  font-weight:bold;
+  background-color: silver;
+}
+
+#board {
+  display: table;
+  border: 3px black solid;
+  margin: 15px auto;
+  align-items: center;
+}
+
+#board input:nth-of-type(9n+9) {
+  clear: right;
+}
+
+#board input:nth-of-type(3n+3) {
+  border-right: 3px black solid;
+}
+
+/*
+having nth of type twice defines a range to apply the rule to
+in the cases below 19 to 27 and 46 to 54. All other values to n
+will evaluate to ranges that fall between these or, are unrealistic
+ranges ie: 29:17 for n=10 has no numbers fall within the range
+*/
+#board input:nth-of-type(n+19):nth-of-type(-n+27),
+#board input:nth-of-type(n+46):nth-of-type(-n+54) {
+  border-bottom: 3px black solid;
+}
+
+#radioContainer {
+  display: table;
+  font-size: 18px;
+  margin: 10px auto;
+  align-items: center;
+}
+
+.gridCell {
+  display: inline;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border: 1px grey solid;
+  font-size: 30px;
+  margin: 0px auto;
+}
+
+button {
+  display: block;
+  margin: 15px auto;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: silver;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    position: absolute;
+    width: 200px;
+    top: -50%;
+    left: 100%;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
