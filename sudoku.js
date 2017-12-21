@@ -1,4 +1,5 @@
-var initializeApp = function () {
+var initializeApp = function (boardGrid) {
+  boardGrid = [];
   generateBoard(9);
   $('#radioContainer').toggle();
   $('input[type=radio]').on('change', function() {
@@ -22,11 +23,21 @@ var initializeApp = function () {
     }
   });
 }
+var resetPage = function() {
+  $("#board").empty();
+  boardGrid = [];
+  //toggle on the initial components rendered
+  $('.title').toggle();
+  $('#createsudoku').toggle();
+  $('#randomsudoku').toggle();
+  initializeApp();
+}
 
 var generateBoard = function(width) {
   // Initiates an empty board for the future jQuery to use
 
   var board = $("#board");
+
   for (var i = 0; i < width; i++) {
     var row = [];
     for (var j = 0; j < width; j++) {
@@ -289,7 +300,7 @@ var findBoxRange = function(n, factor) {
 }
 
 var boardGrid = [];
-initializeApp();
+initializeApp(boardGrid);
 
 var submittedGrid = false;
 var randomBoards = [
